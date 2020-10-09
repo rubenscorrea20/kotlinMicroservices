@@ -1,0 +1,866 @@
+---
+swagger: '2.0'
+info:
+  description: PeÃ§a responsavel pela integraÃ§Ã£o com o front
+  version: 0.0.1-SNAPSHOT
+  title: iti-dict-bff
+host: api.dev.aws.cloud.ihf
+basePath: "/"
+tags:
+- name: claim-controller-impl
+  description: Claim Controller Impl
+- name: customer-controller-impl
+  description: Customer Controller Impl
+- name: key-controller-impl
+  description: Key Controller Impl
+paths:
+  "/claim/v1/acquire":
+    post:
+      tags:
+      - claim-controller-impl
+      summary: claimAcquire
+      description: Neste serviço visamos habilitar a atualização de status de portabilidade
+        uma chave cadastrada
+      operationId: claimAcquireUsingPOST
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - in: body
+        name: claimRequest
+        description: claimRequest
+        required: true
+        schema:
+          "$ref": "#/definitions/ClaimRequest"
+      responses:
+        '200':
+          description: Chave portabilizada com sucesso
+          schema:
+            "$ref": "#/definitions/ClaimResponse"
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+  "/claim/v1/acquire/accept":
+    post:
+      tags:
+      - claim-controller-impl
+      summary: acceptClaimAcquire
+      description: Neste serviço visamos confirmar a posse de uma chave
+      operationId: acceptClaimAcquireUsingPOST
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - in: body
+        name: claimRequest
+        description: claimRequest
+        required: true
+        schema:
+          "$ref": "#/definitions/ClaimRequest"
+      responses:
+        '200':
+          description: Confirmação de posse da chave realizada com sucesso
+          schema:
+            "$ref": "#/definitions/ClaimResponse"
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+  "/claim/v1/acquire/cancel":
+    post:
+      tags:
+      - claim-controller-impl
+      summary: cancelClaimAcquire
+      description: Neste serviço visamos cancelar a requisição de posse de uma chavee
+      operationId: cancelClaimAcquireUsingPOST
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - in: body
+        name: claimRequest
+        description: claimRequest
+        required: true
+        schema:
+          "$ref": "#/definitions/ClaimRequest"
+      responses:
+        '200':
+          description: Cancelamento da portabilidade da chave realizada com sucesso
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+  "/claim/v1/release/accept":
+    post:
+      tags:
+      - claim-controller-impl
+      summary: acceptClaimRelease
+      description: Neste serviço visamos confirmar a liberação de uma chave que possuimos
+      operationId: acceptClaimReleaseUsingPOST
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - in: body
+        name: claimRequest
+        description: claimRequest
+        required: true
+        schema:
+          "$ref": "#/definitions/ClaimRequest"
+      responses:
+        '200':
+          description: Liberação da chave realizada com sucesso
+          schema:
+            "$ref": "#/definitions/ClaimResponse"
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+  "/claim/v1/release/reject":
+    post:
+      tags:
+      - claim-controller-impl
+      summary: rejectClaimRelease
+      description: Neste serviço visamos rejeitar a liberação de uma chave que possuimos
+      operationId: rejectClaimReleaseUsingPOST
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - in: body
+        name: claimRequest
+        description: claimRequest
+        required: true
+        schema:
+          "$ref": "#/definitions/ClaimRequest"
+      responses:
+        '200':
+          description: Recusa da liberação da chave realizada com sucesso
+          schema:
+            "$ref": "#/definitions/ClaimResponse"
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+  "/claim/v1/{accountId}":
+    get:
+      tags:
+      - claim-controller-impl
+      summary: getClaims
+      description: Neste serviço visamos consultar as solicitações de portabilidades
+        abertas para uma determinada conta
+      operationId: getClaimsUsingGET
+      produces:
+      - application/json
+      parameters:
+      - name: accountId
+        in: path
+        description: accountId
+        required: true
+        type: string
+      responses:
+        '200':
+          description: Consulta de pedidos solicitados realizada com sucesso
+          schema:
+            type: array
+            items:
+              "$ref": "#/definitions/ClaimResponse"
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+  "/claim/v1/{accountId}/{keyName}":
+    get:
+      tags:
+      - claim-controller-impl
+      summary: getClaim
+      description: Neste serviço visamos consultar as solicitações de portabilidades
+        abertas para uma determinada conta
+      operationId: getClaimUsingGET
+      produces:
+      - application/json
+      parameters:
+      - name: accountId
+        in: path
+        description: accountId
+        required: true
+        type: string
+      - name: keyName
+        in: path
+        description: keyName
+        required: true
+        type: string
+      responses:
+        '200':
+          description: Consulta de pedidos solicitados realizada com sucesso
+          schema:
+            "$ref": "#/definitions/ClaimResponse"
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+  "/customer/v1/info/{clientId}":
+    get:
+      tags:
+      - customer-controller-impl
+      summary: getCustomerFilteredInfo
+      description: Serviço responsável por recuperar dados do cliente através da chamada
+        da API - .
+      operationId: getCustomerFilteredInfoUsingGET
+      produces:
+      - application/json
+      parameters:
+      - name: clientId
+        in: path
+        description: clientId
+        required: true
+        type: string
+      - name: filterType
+        in: query
+        description: filterType
+        required: true
+        type: string
+        enum:
+        - NOT_FOUND
+        - DOCUMENT
+        - NUMBER
+        - EMAIL
+      responses:
+        '200':
+          description: Dados recuperados com sucesso
+          schema:
+            "$ref": "#/definitions/CreateKeyResponse"
+        '400':
+          description: Erros de Validação física, informando o nome do campo problemático
+            e o motivo da recusa
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '500':
+          description: Erro inesperado
+        '501':
+          description: Não implementado
+        '503':
+          description: Serviço Indisponível
+      deprecated: false
+  "/key/v1":
+    post:
+      tags:
+      - key-controller-impl
+      summary: create
+      description: Serviço responsável por cadastrar a chave do PIX através da chamada
+        da API - .
+      operationId: createUsingPOST
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - in: body
+        name: createKeyRequest
+        description: createKeyRequest
+        required: true
+        schema:
+          "$ref": "#/definitions/CreateKeyRequest"
+      responses:
+        '200':
+          description: OK
+          schema:
+            "$ref": "#/definitions/CreateKeyResponse"
+        '201':
+          description: Chave Cadastrada com sucesso
+          schema:
+            "$ref": "#/definitions/CreateKeyResponse"
+        '400':
+          description: Erros de Validação física, informando o nome do campo problemático
+            e o motivo da recusa
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '500':
+          description: Erro inesperado
+        '501':
+          description: Não implementado
+        '503':
+          description: Serviço Indisponível
+      deprecated: false
+  "/key/v1/all":
+    delete:
+      tags:
+      - key-controller-impl
+      summary: deleteKeys
+      description: Serviço para deletar chaves do cliente na base do pix iti - itau
+      operationId: deleteKeysUsingDELETE
+      produces:
+      - application/json
+      parameters:
+      - name: accountId
+        in: query
+        description: accountId
+        required: true
+        type: string
+      responses:
+        '200':
+          description: chaves deletadas com sucesso
+          schema:
+            type: array
+            items:
+              "$ref": "#/definitions/DeleteKeyManagerResponse"
+        '204':
+          description: No Content
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+      deprecated: false
+  "/key/v1/key/{keyName}":
+    post:
+      tags:
+      - key-controller-impl
+      summary: getKey
+      description: Serviço para resgatar as informações da chave especifica informada
+      operationId: getKeyUsingPOST
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - in: body
+        name: request
+        description: request
+        required: true
+        schema:
+          "$ref": "#/definitions/GetKeyRequest"
+      responses:
+        '200':
+          description: chave recuperada com sucesso
+          schema:
+            "$ref": "#/definitions/PixKeyResponse"
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+  "/key/v1/keys":
+    post:
+      tags:
+      - key-controller-impl
+      summary: getKeys
+      description: Serviço para resgatar as coleções de chaves determinadas pelo accountID
+        do cliente
+      operationId: getKeysUsingPOST
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - in: body
+        name: bankAccountRequest
+        description: bankAccountRequest
+        required: true
+        schema:
+          "$ref": "#/definitions/BankAccountRequest"
+      responses:
+        '200':
+          description: chaves recuperadas com sucesso
+          schema:
+            "$ref": "#/definitions/GetListKeyResponse"
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+  "/key/v1/{keyName}":
+    delete:
+      tags:
+      - key-controller-impl
+      summary: deleteByKeyname
+      description: Serviço para deletar chave do cliente na base do pix iti - itau
+      operationId: deleteByKeynameUsingDELETE
+      produces:
+      - application/json
+      parameters:
+      - in: body
+        name: deleteKeyRequest
+        description: deleteKeyRequest
+        required: true
+        schema:
+          "$ref": "#/definitions/DeleteKeyRequest"
+      responses:
+        '200':
+          description: chave deletada com sucesso
+        '204':
+          description: No Content
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+      deprecated: false
+definitions:
+  AccountResponse:
+    type: object
+    required:
+    - accountId
+    - bank
+    - branch
+    - creationDate
+    - digit
+    - number
+    properties:
+      accountId:
+        type: string
+      bank:
+        type: string
+      branch:
+        type: string
+      creationDate:
+        type: string
+      digit:
+        type: string
+      number:
+        type: string
+    title: AccountResponse
+  BankAccountRequest:
+    type: object
+    required:
+    - accountId
+    - bank
+    - branch
+    - creationDate
+    - digit
+    - number
+    properties:
+      accountId:
+        type: string
+      bank:
+        type: string
+      branch:
+        type: string
+      creationDate:
+        type: string
+      digit:
+        type: string
+      number:
+        type: string
+    title: BankAccountRequest
+  BankAccountResponse:
+    type: object
+    required:
+    - accountId
+    - bank
+    - branch
+    - digit
+    - number
+    properties:
+      accountId:
+        type: string
+      bank:
+        type: string
+      branch:
+        type: string
+      digit:
+        type: string
+      number:
+        type: string
+    title: BankAccountResponse
+  ClaimRequest:
+    type: object
+    required:
+    - key
+    - operation
+    - transactionId
+    - type
+    properties:
+      claimer:
+        "$ref": "#/definitions/ClaimerRequest"
+      donor:
+        "$ref": "#/definitions/DonorRequest"
+      key:
+        type: string
+      operation:
+        type: string
+      transactionId:
+        type: string
+      type:
+        type: string
+    title: ClaimRequest
+  ClaimResponse:
+    type: object
+    required:
+    - createdAt
+    - key
+    - transactionId
+    - type
+    - updatedAt
+    properties:
+      claimer:
+        "$ref": "#/definitions/ClaimerResponse"
+      createdAt:
+        type: string
+      donor:
+        "$ref": "#/definitions/DonorResponse"
+      donorParticipant:
+        "$ref": "#/definitions/DonorParticipantResponse"
+      key:
+        type: string
+      operation:
+        type: string
+      status:
+        type: string
+      transactionId:
+        type: string
+      type:
+        type: string
+      updatedAt:
+        type: string
+    title: ClaimResponse
+  ClaimerRequest:
+    type: object
+    required:
+    - bankAccount
+    - clientId
+    - document
+    - name
+    properties:
+      bankAccount:
+        "$ref": "#/definitions/BankAccountRequest"
+      clientId:
+        type: string
+      document:
+        "$ref": "#/definitions/DocumentRequest"
+      name:
+        type: string
+    title: ClaimerRequest
+  ClaimerResponse:
+    type: object
+    required:
+    - bankAccount
+    - document
+    - name
+    properties:
+      bankAccount:
+        "$ref": "#/definitions/BankAccountResponse"
+      document:
+        "$ref": "#/definitions/DocumentResponse"
+      name:
+        type: string
+    title: ClaimerResponse
+  CreateKeyRequest:
+    type: object
+    required:
+    - key
+    - owner
+    - reason
+    - transactionId
+    - type
+    properties:
+      key:
+        type: string
+      owner:
+        "$ref": "#/definitions/OwnerRequest"
+      reason:
+        type: string
+      transactionId:
+        type: string
+      type:
+        type: string
+    title: CreateKeyRequest
+  CreateKeyResponse:
+    type: object
+    required:
+    - createdAt
+    - key
+    - owner
+    - ownershipDate
+    - registeredAt
+    - status
+    - type
+    - updatedAt
+    properties:
+      createdAt:
+        type: string
+      key:
+        type: string
+      owner:
+        "$ref": "#/definitions/OwnerResponse"
+      ownershipDate:
+        type: string
+      registeredAt:
+        type: string
+      status:
+        type: string
+      type:
+        type: string
+      updatedAt:
+        type: string
+    title: CreateKeyResponse
+  CustomerFilteredInfoResponse:
+    type: object
+    required:
+    - type
+    properties:
+      type:
+        type: string
+        enum:
+        - NOT_FOUND
+        - DOCUMENT
+        - NUMBER
+        - EMAIL
+      value:
+        type: string
+    title: CustomerFilteredInfoResponse
+  DeleteKeyManagerResponse:
+    type: object
+    required:
+    - name
+    - status
+    properties:
+      name:
+        type: string
+      status:
+        type: string
+      type:
+        type: string
+    title: DeleteKeyManagerResponse
+  DeleteKeyRequest:
+    type: object
+    required:
+    - bankAccount
+    - key
+    properties:
+      bankAccount:
+        "$ref": "#/definitions/BankAccountRequest"
+      key:
+        type: string
+    title: DeleteKeyRequest
+  DocumentRequest:
+    type: object
+    required:
+    - number
+    - type
+    properties:
+      number:
+        type: string
+      type:
+        type: string
+    title: DocumentRequest
+  DocumentResponse:
+    type: object
+    required:
+    - number
+    - type
+    properties:
+      number:
+        type: string
+      type:
+        type: string
+    title: DocumentResponse
+  DonorParticipantResponse:
+    type: object
+    required:
+    - ispb
+    - name
+    - status
+    - type
+    properties:
+      ispb:
+        type: string
+      name:
+        type: string
+      status:
+        type: string
+      type:
+        type: string
+    title: DonorParticipantResponse
+  DonorRequest:
+    type: object
+    required:
+    - bankAccount
+    - clientId
+    - document
+    - name
+    properties:
+      bankAccount:
+        "$ref": "#/definitions/BankAccountRequest"
+      clientId:
+        type: string
+      document:
+        "$ref": "#/definitions/DocumentRequest"
+      name:
+        type: string
+    title: DonorRequest
+  DonorResponse:
+    type: object
+    required:
+    - bankAccount
+    - document
+    - name
+    properties:
+      bankAccount:
+        "$ref": "#/definitions/BankAccountResponse"
+      document:
+        "$ref": "#/definitions/DocumentResponse"
+      name:
+        type: string
+    title: DonorResponse
+  GetKeyRequest:
+    type: object
+    required:
+    - bankAccount
+    - key
+    properties:
+      bankAccount:
+        "$ref": "#/definitions/OwnerRequest"
+      key:
+        type: string
+    title: GetKeyRequest
+  GetListKeyResponse:
+    type: object
+    required:
+    - list_of_cnpj
+    - list_of_cpf
+    - list_of_email
+    - list_of_evp
+    - list_of_phone
+    properties:
+      list_of_cnpj:
+        type: array
+        items:
+          "$ref": "#/definitions/PixKeyResponse"
+      list_of_cpf:
+        type: array
+        items:
+          "$ref": "#/definitions/PixKeyResponse"
+      list_of_email:
+        type: array
+        items:
+          "$ref": "#/definitions/PixKeyResponse"
+      list_of_evp:
+        type: array
+        items:
+          "$ref": "#/definitions/PixKeyResponse"
+      list_of_phone:
+        type: array
+        items:
+          "$ref": "#/definitions/PixKeyResponse"
+    title: GetListKeyResponse
+  OwnerRequest:
+    type: object
+    required:
+    - bankAccount
+    - clientId
+    - document
+    - name
+    properties:
+      bankAccount:
+        "$ref": "#/definitions/BankAccountRequest"
+      clientId:
+        type: string
+      document:
+        "$ref": "#/definitions/DocumentRequest"
+      name:
+        type: string
+    title: OwnerRequest
+  OwnerResponse:
+    type: object
+    required:
+    - bankAccount
+    - clientId
+    - document
+    - name
+    properties:
+      bankAccount:
+        "$ref": "#/definitions/AccountResponse"
+      clientId:
+        type: string
+      document:
+        "$ref": "#/definitions/DocumentResponse"
+      name:
+        type: string
+    title: OwnerResponse
+  PixKeyResponse:
+    type: object
+    required:
+    - createdAt
+    - donorParticipant
+    - key
+    - operation
+    - owner
+    - ownershipDate
+    - registeredAt
+    - status
+    - type
+    - updatedAt
+    properties:
+      createdAt:
+        type: string
+      donorParticipant:
+        "$ref": "#/definitions/DonorParticipantResponse"
+      key:
+        type: string
+      operation:
+        type: string
+      owner:
+        "$ref": "#/definitions/OwnerResponse"
+      ownershipDate:
+        type: string
+      registeredAt:
+        type: string
+      status:
+        type: string
+      type:
+        type: string
+      updatedAt:
+        type: string
+    title: PixKeyResponse
