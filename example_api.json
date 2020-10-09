@@ -12,6 +12,16 @@
       "name": "MIT"
     }
   },
+  "x-tagGroups": [
+    {
+      "name": "User Management",
+      "tags": ["Users", "API keys", "Admin"]
+    },
+    {
+      "name": "Statistics",
+      "tags": ["Main Stats", "Secondary Stats"]
+      }
+  ],
   "host": "petstore.swagger.io",
   "basePath": "/api",
   "schemes": [
