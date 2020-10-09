@@ -25,7 +25,7 @@ info:
 host: api.dev.aws.cloud.ihf
 basePath: "/"
 x-logo:
-    url: 'https://upload.wikimedia.org/wikipedia/commons/d/de/Logo_-_pix_powered_by_Banco_Central_%28Brazil%2C_2020%29.png'
+    url: 'https://s2.glbimg.com/aC-3ksFG1onj0-hSKc0sooLKjRY=/0x0:984x444/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_f035dd6fd91c438fa04ab718d608bbaa/internal_photos/bs/2020/B/Q/hY2WOyRcKflZAT0samBw/pix.jpg'
     altText: PIX
 tags:
 - name: claim-controller-impl
