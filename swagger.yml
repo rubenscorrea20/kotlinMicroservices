@@ -35,13 +35,13 @@ tags:
 - name: key-controller-impl
   description: Key Controller Impl
 x-tagGroups:
-  - name: General
+  - name: Claim
     tags:
-      - pet
-      - store
-  - name: User Management
+      - claim-controller-impl
+      - customer-controller-impl
+  - name: Keymanager
     tags:
-      - user  
+      - key-controller-impl  
 paths:
   "/claim/v1/acquire":
     post:
