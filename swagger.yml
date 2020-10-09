@@ -1,8 +1,26 @@
 ---
 swagger: '2.0'
 info:
-  description: PeÃ§a responsavel pela integraÃ§Ã£o com o front
-  version: 0.0.1-SNAPSHOT
+  description: | 
+  API responsavel pela integração com o frontend do aplicativo do pix
+  Você pode encontrar mais detalhes em 
+  [http://example.com]
+  # INTRODUÇÃO
+  Esta API esta documentada em **OpenAPI format**
+  Lorem ipsum curabitur nisl etiam commodo magna tristique, eu felis quisque aenean dui nulla senectus, cursus dictum 
+  ut suscipit sollicitudin non. eros pulvinar risus tempor aliquet amet aenean eu augue nisl vitae, amet venenatis blandit 
+  dapibus tortor integer dolor tortor viverra auctor amet, nisl ligula ut imperdiet morbi augue sem integer aliquam. luctus 
+  suspendisse magna imperdiet sem volutpat magna nisi velit, nisl ac per metus lacinia morbi posuere, cursus etiam placerat
+  # ESPECIFICAÇÃO OpenAPI
+  This API is documented in **OpenAPI format** and is based on
+  [Petstore sample](http://petstore.swagger.io/) provided by [swagger.io](http://swagger.io) team.
+  It was **extended** to illustrate features of [generator-openapi-repo](https://github.com/Rebilly/generator-openapi-repo)
+  tool and [ReDoc](https://github.com/Redocly/redoc) documentation. In addition to standard
+  OpenAPI syntax we use a few [vendor extensions](https://github.com/Redocly/redoc/blob/master/docs/redoc-vendor-extensions.md).
+  # Authentication
+  Petstore offers two forms of authentication:
+    - API Key
+    - OAuth2
   title: iti-dict-bff
 host: api.dev.aws.cloud.ihf
 basePath: "/"
