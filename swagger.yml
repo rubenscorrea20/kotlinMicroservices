@@ -5,7 +5,7 @@ info:
   API responsavel pela integração com o frontend do aplicativo do pix
   Você pode encontrar mais detalhes em 
   [http://example.com]
-  # INTRODUÇÃO
+  # Introduction
   Esta API esta documentada em **OpenAPI format**
   Lorem ipsum curabitur nisl etiam commodo magna tristique, eu felis quisque aenean dui nulla senectus, cursus dictum 
   ut suscipit sollicitudin non. eros pulvinar risus tempor aliquet amet aenean eu augue nisl vitae, amet venenatis blandit 
@@ -35,6 +35,14 @@ tags:
   description: Customer Controller Impl
 - name: key-controller-impl
   description: Key Controller Impl
+x-tagGroups:
+  - name: General
+    tags:
+      - pet
+      - store
+  - name: User Management
+    tags:
+      - user  
 paths:
   "/claim/v1/acquire":
     post:
