@@ -22,8 +22,12 @@ info:
     - API Key
     - OAuth2
   title: iti-dict-bff
+  https://upload.wikimedia.org/wikipedia/commons/d/de/Logo_-_pix_powered_by_Banco_Central_%28Brazil%2C_2020%29.png
 host: api.dev.aws.cloud.ihf
 basePath: "/"
+x-logo:
+    url: 'https://redocly.github.io/redoc/petstore-logo.png'
+    altText: PIX
 tags:
 - name: claim-controller-impl
   description: Claim Controller Impl
