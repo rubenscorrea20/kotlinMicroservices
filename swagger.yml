@@ -22,6 +22,15 @@ info:
       - API Key
       - OAuth2
     title: iti-dict-bff
+  version: 1.0.0
+  title: Swagger Pix BFF
+  termsOfService: 'http://swagger.io/terms/'
+  contact:
+    email: apiteam@swagger.io
+    url: https://github.com/Redocly/redoc
+  license:
+    name: Apache 2.0
+    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'    
   x-logo:
     url: 'https://s2.glbimg.com/aC-3ksFG1onj0-hSKc0sooLKjRY=/0x0:984x444/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_f035dd6fd91c438fa04ab718d608bbaa/internal_photos/bs/2020/B/Q/hY2WOyRcKflZAT0samBw/pix.jpg'
     altText: PIX
