@@ -11,7 +11,7 @@ info:
     ut suscipit sollicitudin non. eros pulvinar risus tempor aliquet amet aenean eu augue nisl vitae, amet venenatis blandit 
     dapibus tortor integer dolor tortor viverra auctor amet, nisl ligula ut imperdiet morbi augue sem integer aliquam. luctus 
     suspendisse magna imperdiet sem volutpat magna nisi velit, nisl ac per metus lacinia morbi posuere, cursus etiam placerat
-    # ESPECIFICAÇÃO OpenAPI
+    # Especificação OpenAPI
     This API is documented in **OpenAPI format** and is based on
     [Petstore sample](http://petstore.swagger.io/) provided by [swagger.io](http://swagger.io) team.
     It was **extended** to illustrate features of [generator-openapi-repo](https://github.com/Rebilly/generator-openapi-repo)
@@ -22,11 +22,11 @@ info:
       - API Key
       - OAuth2
     title: iti-dict-bff
-host: api.dev.aws.cloud.ihf
-basePath: "/"
-x-logo:
+  x-logo:
     url: 'https://s2.glbimg.com/aC-3ksFG1onj0-hSKc0sooLKjRY=/0x0:984x444/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_f035dd6fd91c438fa04ab718d608bbaa/internal_photos/bs/2020/B/Q/hY2WOyRcKflZAT0samBw/pix.jpg'
     altText: PIX
+host: api.dev.aws.cloud.ihf
+basePath: "/"
 tags:
 - name: claim-controller-impl
   description: Claim Controller Impl
