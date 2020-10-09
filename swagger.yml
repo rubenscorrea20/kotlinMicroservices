@@ -4,13 +4,13 @@ info:
   description: |
     API responsavel pela integração com o frontend do aplicativo do pix
     Você pode encontrar mais detalhes em 
-    [http://example.com].
-    # Introduction
-    Esta API esta documentada em **OpenAPI format**.
+    [http://example.com]
+    # Introdução
+    Esta API esta documentada em **OpenAPI format**
     Lorem ipsum curabitur nisl etiam commodo magna tristique, eu felis quisque aenean dui nulla senectus, cursus dictum 
     ut suscipit sollicitudin non. eros pulvinar risus tempor aliquet amet aenean eu augue nisl vitae, amet venenatis blandit 
     dapibus tortor integer dolor tortor viverra auctor amet, nisl ligula ut imperdiet morbi augue sem integer aliquam. luctus 
-    suspendisse magna imperdiet sem volutpat magna nisi velit, nisl ac per metus lacinia morbi posuere, cursus etiam placerat.
+    suspendisse magna imperdiet sem volutpat magna nisi velit, nisl ac per metus lacinia morbi posuere, cursus etiam placerat
     # ESPECIFICAÇÃO OpenAPI
     This API is documented in **OpenAPI format** and is based on
     [Petstore sample](http://petstore.swagger.io/) provided by [swagger.io](http://swagger.io) team.
@@ -21,7 +21,7 @@ info:
     Petstore offers two forms of authentication:
       - API Key
       - OAuth2
-    title: iti-dict-bff.
+    title: iti-dict-bff
 host: api.dev.aws.cloud.ihf
 basePath: "/"
 x-logo:
