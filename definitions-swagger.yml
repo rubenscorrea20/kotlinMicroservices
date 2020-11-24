@@ -43,7 +43,7 @@ CashInPayment:
         type: string
         format: date-time
       destinationHolder:
-        $ref: "#/definitions/DestinationHolder"
+        $ref: "https://raw.githubusercontent.com/rubenscorrea20/kotlinMicroservices/master/definitions/DestinationHolder"
       eventStatus:
         type: string
       id:
@@ -52,15 +52,15 @@ CashInPayment:
         type: string
         format: date-time
       sourceHolder:
-        $ref: "#/definitions/SourceHolder"
+        $ref: "https://raw.githubusercontent.com/rubenscorrea20/kotlinMicroservices/master/definitions/SourceHolder"
       status:
         type: string
       transactionId:
         type: string
       transactionReceipt:
-        $ref: "#/definitions/TransactionReceipt"
+        $ref: "https://raw.githubusercontent.com/rubenscorrea20/kotlinMicroservices/master/definitions/TransactionReceipt"
       transactionValue:
-        $ref: "#/definitions/Amount"
+        $ref: "https://raw.githubusercontent.com/rubenscorrea20/kotlinMicroservices/master/definitions/Amount"
     title: CashInPayment
 CashOutFindByStatusResponseDTO:
     type: object
@@ -81,7 +81,7 @@ CashOutFindByStatusResponseDTO:
         type: string
         format: date-time
       destination_holder:
-        $ref: "#/definitions/DestinationHolder"
+        $ref: "https://raw.githubusercontent.com/rubenscorrea20/kotlinMicroservices/master/definitions/DestinationHolder"
       end_to_end_id:
         type: string
       event_status:
@@ -89,17 +89,17 @@ CashOutFindByStatusResponseDTO:
       mode:
         type: string
       payment_details:
-        $ref: "#/definitions/PaymentDetails"
+        $ref: "https://raw.githubusercontent.com/rubenscorrea20/kotlinMicroservices/master/definitions/PaymentDetails"
       qr_code_data:
-        $ref: "#/definitions/QrCodeData"
+        $ref: "https://raw.githubusercontent.com/rubenscorrea20/kotlinMicroservices/master/definitions/QrCodeData"
       source_holder:
-        $ref: "#/definitions/SourceHolder"
+        $ref: "https://raw.githubusercontent.com/rubenscorrea20/kotlinMicroservices/master/definitions/SourceHolder"
       status:
         type: string
       status_detail:
-        $ref: "#/definitions/StatusDetail"
+        $ref: "https://raw.githubusercontent.com/rubenscorrea20/kotlinMicroservices/master/definitions/StatusDetail"
       transaction_value:
-        $ref: "#/definitions/TransactionValue"
+        $ref: "https://raw.githubusercontent.com/rubenscorrea20/kotlinMicroservices/master/definitions/TransactionValue"
     title: CashOutFindByStatusResponseDTO
 CashOutPaymentRequest:
     type: object
@@ -119,15 +119,15 @@ CashOutPaymentRequest:
       payment_user_message:
         type: string
       transaction_value:
-        $ref: "#/definitions/TransactionValue"
+        $ref: "https://raw.githubusercontent.com/rubenscorrea20/kotlinMicroservices/master/definitions/TransactionValue"
       pix:
-        $ref: "#/definitions/Pix"
+        $ref: "https://raw.githubusercontent.com/rubenscorrea20/kotlinMicroservices/master/definitions/Pix"
       destination_holder:
-        $ref: "#/definitions/CashOutPaymentRequestDestinationHolder"
+        $ref: "https://raw.githubusercontent.com/rubenscorrea20/kotlinMicroservices/master/definitions/CashOutPaymentRequestDestinationHolder"
       payment_details:
-        $ref: "#/definitions/CashOutPaymentRequestPaymentDetails"
+        $ref: "https://raw.githubusercontent.com/rubenscorrea20/kotlinMicroservices/master/definitions/CashOutPaymentRequestPaymentDetails"
       metadata:
-        $ref: "#/definitions/FraudMetadata"
+        $ref: "https://raw.githubusercontent.com/rubenscorrea20/kotlinMicroservices/master/definitions/FraudMetadata"
     title: CashOutPaymentRequest
 CashOutPaymentRequestDestinationHolder:
     type: object
@@ -141,7 +141,7 @@ CashOutPaymentRequestDestinationHolder:
       document_number:
         type: string
       bank_account:
-        $ref: "#/definitions/CashOutPaymentRequestDestinationHolderBankAccount"
+        $ref: "https://raw.githubusercontent.com/rubenscorrea20/kotlinMicroservices/master/definitions/CashOutPaymentRequestDestinationHolderBankAccount"
     title: CashOutPaymentRequestDestinationHolder
 CashOutPaymentRequestDestinationHolderBankAccount:
     type: object
@@ -199,7 +199,7 @@ CashOutRefundDTO:
         type: string
         format: date-time
       destinationHolder:
-        $ref: "#/definitions/DestinationHolder"
+        $ref: "https://raw.githubusercontent.com/rubenscorrea20/kotlinMicroservices/master/definitions/DestinationHolder"
       endToEndId:
         type: string
       eventStatus:
@@ -211,33 +211,33 @@ CashOutRefundDTO:
       originalEndToEndId:
         type: string
       paymentDetails:
-        $ref: "#/definitions/PaymentDetails"
+        $ref: "https://raw.githubusercontent.com/rubenscorrea20/kotlinMicroservices/master/definitions/PaymentDetails"
       sourceHolder:
-        $ref: "#/definitions/SourceHolder"
+        $ref: "https://raw.githubusercontent.com/rubenscorrea20/kotlinMicroservices/master/definitions/SourceHolder"
       status:
         type: string
       statusDetail:
-        $ref: "#/definitions/StatusDetail"
+        $ref: "https://raw.githubusercontent.com/rubenscorrea20/kotlinMicroservices/master/definitions/StatusDetail"
       totalReturnAmount:
         type: number
       totalReturnAmountAfterPay:
         type: number
       transactionValue:
-        $ref: "#/definitions/TransactionValue"
+        $ref: "https://raw.githubusercontent.com/rubenscorrea20/kotlinMicroservices/master/definitions/TransactionValue"
     title: CashOutRefundDTO
 CashOutRefundRequest:
     type: object
     properties:
       transaction_value:
-        $ref: "#/definitions/TransactionValue"
+        $ref: "https://raw.githubusercontent.com/rubenscorrea20/kotlinMicroservices/master/definitions/TransactionValue"
       mode:
         type: string
       destination_holder:
-        $ref: "#/definitions/CashOutRefundRequestDestinationHolder"
+        $ref: "https://raw.githubusercontent.com/rubenscorrea20/kotlinMicroservices/master/definitions/CashOutRefundRequestDestinationHolder"
       refund_details:
-        $ref: "#/definitions/CashOutRefundRequestRefundDetails"
+        $ref: "https://raw.githubusercontent.com/rubenscorrea20/kotlinMicroservices/master/definitions/CashOutRefundRequestRefundDetails"
       metadata:
-        $ref: "#/definitions/FraudMetadata"
+        $ref: "https://raw.githubusercontent.com/rubenscorrea20/kotlinMicroservices/master/definitions/FraudMetadata"
     title: CashOutRefundRequest
 CashOutRefundRequestDestinationHolder:
     type: object
@@ -245,9 +245,9 @@ CashOutRefundRequestDestinationHolder:
       name:
         type: string
       document:
-        $ref: "#/definitions/CashOutRefundRequestDestinationHolderDocument"
+        $ref: "https://raw.githubusercontent.com/rubenscorrea20/kotlinMicroservices/master/definitions/CashOutRefundRequestDestinationHolderDocument"
       bank_account:
-        $ref: "#/definitions/CashOutRefundRequestDestinationHolderBankAccount"
+        $ref: "https://raw.githubusercontent.com/rubenscorrea20/kotlinMicroservices/master/definitions/CashOutRefundRequestDestinationHolderBankAccount"
     title: CashOutRefundRequestDestinationHolder
 CashOutRefundRequestDestinationHolderBankAccount:
     type: object
@@ -294,7 +294,7 @@ CashOutRefundsDTO:
       refunds:
         type: array
         items:
-          $ref: "#/definitions/Refund"
+          $ref: "https://raw.githubusercontent.com/rubenscorrea20/kotlinMicroservices/master/definitions/Refund"
     title: CashOutRefundsDTO
 CashOutRefundsTotalFindResponse:
     type: object
@@ -305,15 +305,15 @@ CashOutRefundsTotalFindResponse:
       end_to_end_id:
         type: string
       transaction_value:
-        $ref: "#/definitions/TransactionValue"
+        $ref: "https://raw.githubusercontent.com/rubenscorrea20/kotlinMicroservices/master/definitions/TransactionValue"
     title: CashOutRefundsTotalFindResponse
 DestinationHolder:
     type: object
     properties:
       bankAccount:
-        $ref: "#/definitions/BankAccount"
+        $ref: "https://raw.githubusercontent.com/rubenscorrea20/kotlinMicroservices/master/definitions/BankAccount"
       owner:
-        $ref: "#/definitions/Owner"
+        $ref: "https://raw.githubusercontent.com/rubenscorrea20/kotlinMicroservices/master/definitions/Owner"
     title: DestinationHolder
 Document:
     type: object
@@ -382,7 +382,7 @@ Owner:
       - name
     properties:
       document:
-        $ref: "#/definitions/Document"
+        $ref: "https://raw.githubusercontent.com/rubenscorrea20/kotlinMicroservices/master/definitions/Document"
       name:
         type: string
     title: Owner
@@ -412,7 +412,7 @@ PixParticipant:
       - data
     properties:
       data:
-        $ref: "#/definitions/Item"
+        $ref: "https://raw.githubusercontent.com/rubenscorrea20/kotlinMicroservices/master/definitions/Item"
     title: PixParticipant
 PixParticipants:
     type: object
@@ -422,7 +422,7 @@ PixParticipants:
       data:
         type: array
         items:
-          $ref: "#/definitions/Item"
+          $ref: "https://raw.githubusercontent.com/rubenscorrea20/kotlinMicroservices/master/definitions/Item"
     title: PixParticipants
 ProcessTypeRequest:
     type: object
@@ -467,15 +467,15 @@ Refund:
       transactionDateTime:
         type: string
       transactionValue:
-        $ref: "#/definitions/TransactionValue"
+        $ref: "https://raw.githubusercontent.com/rubenscorrea20/kotlinMicroservices/master/definitions/TransactionValue"
     title: Refund
 SourceHolder:
     type: object
     properties:
       bankAccount:
-        $ref: "#/definitions/BankAccount"
+        $ref: "https://raw.githubusercontent.com/rubenscorrea20/kotlinMicroservices/master/definitions/BankAccount"
       document:
-        $ref: "#/definitions/Document"
+        $ref: "https://raw.githubusercontent.com/rubenscorrea20/kotlinMicroservices/master/definitions/Document"
       name:
         type: string
     title: SourceHolder
