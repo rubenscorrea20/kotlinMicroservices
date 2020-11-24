@@ -19,7 +19,7 @@
           description: Dados necessários para criação de uma nova ordem de pagamento
           required: false
           schema:
-            $ref: "#/definitions/CashOutPaymentRequest"
+            $ref: "https://raw.githubusercontent.com/rubenscorrea20/kotlinMicroservices/master/definitions/CashOutPaymentRequest"
         - name: x-baas-authorization
           in: header
           description: Token de Autenticação
@@ -34,7 +34,7 @@
         "201":
           description: Created
           schema:
-            $ref: "#/definitions/CashOutPaymentResponse"
+            $ref: "https://raw.githubusercontent.com/rubenscorrea20/kotlinMicroservices/master/definitions/CashOutPaymentResponse"
         "401":
           description: Unauthorized
         "403":
@@ -65,7 +65,7 @@
         "200":
           description: OK
           schema:
-            $ref: "#/definitions/PixParticipants"
+            $ref: "https://raw.githubusercontent.com/rubenscorrea20/kotlinMicroservices/master/definitions/PixParticipants"
         "401":
           description: Unauthorized
         "403":
@@ -101,7 +101,7 @@
         "200":
           description: OK
           schema:
-            $ref: "#/definitions/PixParticipant"
+            $ref: "https://raw.githubusercontent.com/rubenscorrea20/kotlinMicroservices/master/definitions/PixParticipant"
         "401":
           description: Unauthorized
         "403":
@@ -131,7 +131,7 @@
             Transação
           required: false
           schema:
-            $ref: "#/definitions/ProcessTypeRequest"
+            $ref: "https://raw.githubusercontent.com/rubenscorrea20/kotlinMicroservices/master/definitions/ProcessTypeRequest"
         - name: type
           in: path
           description: Identificação do Tipo da Operação - PAYMENT|REFUND
@@ -151,7 +151,7 @@
         "200":
           description: OK
           schema:
-            $ref: "#/definitions/EndToEndIdResponse"
+            $ref: "https://raw.githubusercontent.com/rubenscorrea20/kotlinMicroservices/master/definitions/EndToEndIdResponse"
         "201":
           description: Created
         "401":
@@ -182,7 +182,7 @@
           description: Dados necessários para criação de uma nova devolução
           required: false
           schema:
-            $ref: "#/definitions/CashOutRefundRequest"
+            $ref: "https://raw.githubusercontent.com/rubenscorrea20/kotlinMicroservices/master/definitions/CashOutRefundRequest"
         - name: x-baas-authorization
           in: header
           description: Token de Autenticação
@@ -197,7 +197,7 @@
         "201":
           description: Created
           schema:
-            $ref: "#/definitions/CashOutRefundResponse"
+            $ref: "https://raw.githubusercontent.com/rubenscorrea20/kotlinMicroservices/master/definitions/CashOutRefundResponse"
         "401":
           description: Unauthorized
         "403":
@@ -239,7 +239,7 @@
         "200":
           description: OK
           schema:
-            $ref: "#/definitions/CashInPayment"
+            $ref: "https://raw.githubusercontent.com/rubenscorrea20/kotlinMicroservices/master/definitions/CashInPayment"
         "401":
           description: Unauthorized
         "403":
@@ -281,7 +281,7 @@
         "200":
           description: OK
           schema:
-            $ref: "#/definitions/CashOutRefundsDTO"
+            $ref: "https://raw.githubusercontent.com/rubenscorrea20/kotlinMicroservices/master/definitions/CashOutRefundsDTO"
         "401":
           description: Unauthorized
         "403":
@@ -328,7 +328,7 @@
         "200":
           description: OK
           schema:
-            $ref: "#/definitions/CashOutRefundDTO"
+            $ref: "https://raw.githubusercontent.com/rubenscorrea20/kotlinMicroservices/master/definitions/CashOutRefundDTO"
         "401":
           description: Unauthorized
         "403":
@@ -370,7 +370,7 @@
         "200":
           description: OK
           schema:
-            $ref: "#/definitions/CashOutRefundsTotalFindResponse"
+            $ref: "https://raw.githubusercontent.com/rubenscorrea20/kotlinMicroservices/master/definitions/CashOutRefundsTotalFindResponse"
         "401":
           description: Unauthorized
         "403":
@@ -417,7 +417,7 @@
         "200":
           description: OK
           schema:
-            $ref: "#/definitions/CashOutFindByStatusResponseDTO"
+            $ref: "https://raw.githubusercontent.com/rubenscorrea20/kotlinMicroservices/master/definitions/CashOutFindByStatusResponseDTO"
         "401":
           description: Unauthorized
         "403":
