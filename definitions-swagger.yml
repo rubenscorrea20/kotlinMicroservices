@@ -1,1 +1,509 @@
 
+Amount:
+    type: object
+    required:
+      - currency
+      - value
+    properties:
+      currency:
+        type: string
+      value:
+        type: number
+    title: Amount
+BankAccount:
+    type: object
+    properties:
+      accountId:
+        type: string
+      branch:
+        type: string
+      checkDigit:
+        type: string
+      ispb:
+        type: string
+      number:
+        type: string
+      participant:
+        type: string
+    title: BankAccount
+CashInPayment:
+    type: object
+    required:
+      - createdAt
+      - destinationHolder
+      - eventStatus
+      - id
+      - processedAt
+      - sourceHolder
+      - status
+      - transactionId
+      - transactionReceipt
+      - transactionValue
+    properties:
+      createdAt:
+        type: string
+        format: date-time
+      destinationHolder:
+        $ref: "#/definitions/DestinationHolder"
+      eventStatus:
+        type: string
+      id:
+        type: string
+      processedAt:
+        type: string
+        format: date-time
+      sourceHolder:
+        $ref: "#/definitions/SourceHolder"
+      status:
+        type: string
+      transactionId:
+        type: string
+      transactionReceipt:
+        $ref: "#/definitions/TransactionReceipt"
+      transactionValue:
+        $ref: "#/definitions/Amount"
+    title: CashInPayment
+CashOutFindByStatusResponseDTO:
+    type: object
+    required:
+      - created_at
+      - destination_holder
+      - end_to_end_id
+      - event_status
+      - mode
+      - payment_details
+      - qr_code_data
+      - source_holder
+      - status
+      - status_detail
+      - transaction_value
+    properties:
+      created_at:
+        type: string
+        format: date-time
+      destination_holder:
+        $ref: "#/definitions/DestinationHolder"
+      end_to_end_id:
+        type: string
+      event_status:
+        type: string
+      mode:
+        type: string
+      payment_details:
+        $ref: "#/definitions/PaymentDetails"
+      qr_code_data:
+        $ref: "#/definitions/QrCodeData"
+      source_holder:
+        $ref: "#/definitions/SourceHolder"
+      status:
+        type: string
+      status_detail:
+        $ref: "#/definitions/StatusDetail"
+      transaction_value:
+        $ref: "#/definitions/TransactionValue"
+    title: CashOutFindByStatusResponseDTO
+CashOutPaymentRequest:
+    type: object
+    required:
+      - account_id
+      - destination_holder
+      - end_to_end_id
+      - payment_details
+      - payment_user_message
+      - pix
+      - transaction_value
+    properties:
+      end_to_end_id:
+        type: string
+      account_id:
+        type: string
+      payment_user_message:
+        type: string
+      transaction_value:
+        $ref: "#/definitions/TransactionValue"
+      pix:
+        $ref: "#/definitions/Pix"
+      destination_holder:
+        $ref: "#/definitions/CashOutPaymentRequestDestinationHolder"
+      payment_details:
+        $ref: "#/definitions/CashOutPaymentRequestPaymentDetails"
+      metadata:
+        $ref: "#/definitions/FraudMetadata"
+    title: CashOutPaymentRequest
+CashOutPaymentRequestDestinationHolder:
+    type: object
+    required:
+      - bank_account
+      - document_number
+      - name
+    properties:
+      name:
+        type: string
+      document_number:
+        type: string
+      bank_account:
+        $ref: "#/definitions/CashOutPaymentRequestDestinationHolderBankAccount"
+    title: CashOutPaymentRequestDestinationHolder
+CashOutPaymentRequestDestinationHolderBankAccount:
+    type: object
+    required:
+      - account_number
+      - branch
+      - ispb
+    properties:
+      ispb:
+        type: string
+      branch:
+        type: string
+      account_number:
+        type: string
+    title: CashOutPaymentRequestDestinationHolderBankAccount
+CashOutPaymentRequestPaymentDetails:
+    type: object
+    required:
+      - card_uuid
+      - payment_reason
+      - payment_request_id
+      - type
+    properties:
+      type:
+        type: string
+      card_uuid:
+        type: string
+      is_same_owner:
+        type: boolean
+      payment_reason:
+        type: string
+      payment_request_id:
+        type: string
+    title: CashOutPaymentRequestPaymentDetails
+CashOutPaymentResponse:
+    type: object
+    required:
+      - end_to_end_id
+      - status
+    properties:
+      end_to_end_id:
+        type: string
+      status:
+        type: string
+    title: CashOutPaymentResponse
+CashOutRefundDTO:
+    type: object
+    required:
+      - createdAt
+      - eventStatus
+      - status
+      - statusDetail
+    properties:
+      createdAt:
+        type: string
+        format: date-time
+      destinationHolder:
+        $ref: "#/definitions/DestinationHolder"
+      endToEndId:
+        type: string
+      eventStatus:
+        type: string
+      mode:
+        type: string
+      originalAmount:
+        type: number
+      originalEndToEndId:
+        type: string
+      paymentDetails:
+        $ref: "#/definitions/PaymentDetails"
+      sourceHolder:
+        $ref: "#/definitions/SourceHolder"
+      status:
+        type: string
+      statusDetail:
+        $ref: "#/definitions/StatusDetail"
+      totalReturnAmount:
+        type: number
+      totalReturnAmountAfterPay:
+        type: number
+      transactionValue:
+        $ref: "#/definitions/TransactionValue"
+    title: CashOutRefundDTO
+CashOutRefundRequest:
+    type: object
+    properties:
+      transaction_value:
+        $ref: "#/definitions/TransactionValue"
+      mode:
+        type: string
+      destination_holder:
+        $ref: "#/definitions/CashOutRefundRequestDestinationHolder"
+      refund_details:
+        $ref: "#/definitions/CashOutRefundRequestRefundDetails"
+      metadata:
+        $ref: "#/definitions/FraudMetadata"
+    title: CashOutRefundRequest
+CashOutRefundRequestDestinationHolder:
+    type: object
+    properties:
+      name:
+        type: string
+      document:
+        $ref: "#/definitions/CashOutRefundRequestDestinationHolderDocument"
+      bank_account:
+        $ref: "#/definitions/CashOutRefundRequestDestinationHolderBankAccount"
+    title: CashOutRefundRequestDestinationHolder
+CashOutRefundRequestDestinationHolderBankAccount:
+    type: object
+    properties:
+      ispb:
+        type: string
+      branch:
+        type: string
+      account_number:
+        type: string
+    title: CashOutRefundRequestDestinationHolderBankAccount
+CashOutRefundRequestDestinationHolderDocument:
+    type: object
+    properties:
+      number:
+        type: string
+      type:
+        type: string
+    title: CashOutRefundRequestDestinationHolderDocument
+CashOutRefundRequestRefundDetails:
+    type: object
+    properties:
+      original_end_to_end_id:
+        type: string
+      return_reason:
+        type: string
+    title: CashOutRefundRequestRefundDetails
+CashOutRefundResponse:
+    type: object
+    required:
+      - return_identification
+      - status
+    properties:
+      return_identification:
+        type: string
+      status:
+        type: string
+    title: CashOutRefundResponse
+CashOutRefundsDTO:
+    type: object
+    required:
+      - refunds
+    properties:
+      refunds:
+        type: array
+        items:
+          $ref: "#/definitions/Refund"
+    title: CashOutRefundsDTO
+CashOutRefundsTotalFindResponse:
+    type: object
+    required:
+      - end_to_end_id
+      - transaction_value
+    properties:
+      end_to_end_id:
+        type: string
+      transaction_value:
+        $ref: "#/definitions/TransactionValue"
+    title: CashOutRefundsTotalFindResponse
+DestinationHolder:
+    type: object
+    properties:
+      bankAccount:
+        $ref: "#/definitions/BankAccount"
+      owner:
+        $ref: "#/definitions/Owner"
+    title: DestinationHolder
+Document:
+    type: object
+    properties:
+      number:
+        type: string
+      type:
+        type: string
+    title: Document
+EndToEndIdResponse:
+    type: object
+    required:
+      - endToEndId
+      - processType
+    properties:
+      endToEndId:
+        type: string
+      processType:
+        type: string
+    title: EndToEndIdResponse
+FraudMetadata:
+    type: object
+    required:
+      - authentication_performed
+      - channel_type
+      - device_id
+    properties:
+      device_id:
+        type: string
+      channel_type:
+        type: string
+        enum:
+          - MOBILE
+          - WEB
+      authentication_performed:
+        type: array
+        items:
+          type: string
+          enum:
+            - SENHA
+            - FINGER_AUTHENTICATION
+            - SMS_VALIDADOR
+            - BIOMETRIA_FACIAL
+    title: FraudMetadata
+Item:
+    type: object
+    required:
+      - ispb
+      - name
+      - status
+      - type
+    properties:
+      ispb:
+        type: string
+      name:
+        type: string
+      status:
+        type: string
+      type:
+        type: string
+    title: Item
+Owner:
+    type: object
+    required:
+      - document
+      - name
+    properties:
+      document:
+        $ref: "#/definitions/Document"
+      name:
+        type: string
+    title: Owner
+PaymentDetails:
+    type: object
+    properties:
+      debitId:
+        type: string
+      receipt:
+        type: string
+      trackingId:
+        type: string
+      type:
+        type: string
+    title: PaymentDetails
+  Pix:
+    type: object
+    required:
+      - key
+    properties:
+      key:
+        type: string
+    title: Pix
+PixParticipant:
+    type: object
+    required:
+      - data
+    properties:
+      data:
+        $ref: "#/definitions/Item"
+    title: PixParticipant
+PixParticipants:
+    type: object
+    required:
+      - data
+    properties:
+      data:
+        type: array
+        items:
+          $ref: "#/definitions/Item"
+    title: PixParticipants
+ProcessTypeRequest:
+    type: object
+    required:
+      - account_id
+      - process_type
+    properties:
+      account_id:
+        type: string
+      process_type:
+        type: string
+    title: ProcessTypeRequest
+QrCodeData:
+    type: object
+    properties:
+      discount_amount:
+        type: number
+      due_date:
+        type: string
+        format: date-time
+      fine_amount:
+        type: number
+      interested_amount:
+        type: number
+      message:
+        type: string
+      original_amount:
+        type: number
+    title: QrCodeData
+Refund:
+    type: object
+    required:
+      - endToEndId
+      - returnIdentification
+      - transactionDateTime
+      - transactionValue
+    properties:
+      endToEndId:
+        type: string
+      returnIdentification:
+        type: string
+      transactionDateTime:
+        type: string
+      transactionValue:
+        $ref: "#/definitions/TransactionValue"
+    title: Refund
+SourceHolder:
+    type: object
+    properties:
+      bankAccount:
+        $ref: "#/definitions/BankAccount"
+      document:
+        $ref: "#/definitions/Document"
+      name:
+        type: string
+    title: SourceHolder
+StatusDetail:
+    type: object
+    required:
+      - code
+      - message
+    properties:
+      code:
+        type: string
+      message:
+        type: string
+    title: StatusDetail
+TransactionReceipt:
+    type: object
+    required:
+      - authorizationId
+    properties:
+      authorizationId:
+        type: string
+    title: TransactionReceipt
+TransactionValue:
+    type: object
+    properties:
+      currency:
+        type: string
+      amount:
+        type: number
+    title: TransactionValue
